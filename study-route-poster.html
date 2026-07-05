@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ruankao Skills 学习路线海报</title>
+  <style>
+    :root {
+      --ink: #17212b;
+      --muted: #5a6672;
+      --line: #d7dee6;
+      --paper: #f8fafc;
+      --panel: #ffffff;
+      --teal: #0f8b8d;
+      --blue: #2364aa;
+      --coral: #d95d39;
+      --amber: #d99f2b;
+      --green: #2f855a;
+      --shadow: 0 22px 70px rgba(23, 33, 43, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(90deg, rgba(15, 139, 141, 0.08) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(35, 100, 170, 0.08) 1px, transparent 1px),
+        var(--paper);
+      background-size: 44px 44px;
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    }
+
+    .poster {
+      width: min(100vw, 1600px);
+      aspect-ratio: 16 / 9;
+      min-height: min(100vh, 720px);
+      padding: clamp(24px, 3.2vw, 56px);
+      display: grid;
+      grid-template-columns: minmax(300px, 0.88fr) minmax(620px, 1.55fr);
+      gap: clamp(24px, 3vw, 48px);
+      background: rgba(255, 255, 255, 0.86);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .poster::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 12px;
+      background: linear-gradient(90deg, var(--teal), var(--blue), var(--coral), var(--amber), var(--green));
+    }
+
+    .intro {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 28px;
+      padding-top: 12px;
+      min-width: 0;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      color: var(--teal);
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0;
+      background: #fff;
+    }
+
+    h1 {
+      margin: 24px 0 0;
+      font-size: clamp(44px, 5.4vw, 84px);
+      line-height: 1.02;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      margin: 22px 0 0;
+      max-width: 12em;
+      color: var(--muted);
+      font-size: clamp(18px, 1.6vw, 27px);
+      line-height: 1.45;
+      font-weight: 600;
+    }
+
+    .start {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .start-icon,
+    .stage-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+    }
+
+    .start-icon {
+      background: var(--ink);
+    }
+
+    .start strong {
+      display: block;
+      font-size: 19px;
+      margin-bottom: 4px;
+    }
+
+    .start span {
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 15px;
+    }
+
+    .tool-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .chip {
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      background: #fff;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 13px;
+      color: #293541;
+      white-space: nowrap;
+    }
+
+    .route {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 18px;
+      min-width: 0;
+    }
+
+    .route-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      padding-top: 8px;
+    }
+
+    .route-head h2 {
+      margin: 0;
+      font-size: clamp(26px, 2.8vw, 42px);
+      letter-spacing: 0;
+    }
+
+    .route-head p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 16px;
+      font-weight: 700;
+      text-align: right;
+    }
+
+    .stages {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      align-content: stretch;
+    }
+
+    .stage {
+      position: relative;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      gap: 12px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      min-width: 0;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .stage::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 8px;
+      background: var(--accent);
+    }
+
+    .stage-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .stage-icon {
+      background: var(--accent);
+      flex: 0 0 auto;
+    }
+
+    .number {
+      color: var(--accent);
+      font-size: 38px;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    .stage h3 {
+      margin: 0;
+      font-size: clamp(22px, 2vw, 32px);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .stage .goal {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(14px, 1vw, 17px);
+      line-height: 1.45;
+      font-weight: 650;
+    }
+
+    .steps {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      align-content: start;
+    }
+
+    .steps li {
+      display: grid;
+      grid-template-columns: 20px 1fr;
+      gap: 8px;
+      color: #293541;
+      font-size: clamp(13px, 0.95vw, 16px);
+      line-height: 1.42;
+    }
+
+    .dot {
+      width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      margin-top: 1px;
+      border: 1px solid color-mix(in srgb, var(--accent), white 35%);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      padding-top: 4px;
+    }
+
+    .skills code {
+      display: inline-block;
+      padding: 5px 7px;
+      background: color-mix(in srgb, var(--accent), white 88%);
+      color: color-mix(in srgb, var(--accent), black 22%);
+      font-size: clamp(11px, 0.8vw, 13px);
+      line-height: 1.2;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      white-space: nowrap;
+    }
+
+    .stage:nth-child(1) { --accent: var(--teal); }
+    .stage:nth-child(2) { --accent: var(--blue); }
+    .stage:nth-child(3) { --accent: var(--coral); }
+    .stage:nth-child(4) { --accent: var(--amber); }
+
+    svg {
+      width: 28px;
+      height: 28px;
+      stroke: currentColor;
+      stroke-width: 2.2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    @media (max-width: 980px) {
+      body {
+        display: block;
+      }
+
+      .poster {
+        width: 100%;
+        min-height: 100vh;
+        aspect-ratio: auto;
+        grid-template-columns: 1fr;
+        padding: 30px 18px;
+      }
+
+      .subtitle {
+        max-width: 100%;
+      }
+
+      .stages {
+        grid-template-columns: 1fr;
+      }
+
+      .route-head {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .route-head p {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="poster" aria-label="Ruankao Skills 学习路线海报">
+    <section class="intro">
+      <div>
+        <div class="eyebrow">Ruankao Skills</div>
+        <h1>软考系统架构设计师学习路线</h1>
+        <p class="subtitle">一套可开源复用的 AI 备考流程：先建资料，再刷题沉淀，最后闭环冲刺。</p>
+      </div>
+
+      <div class="start">
+        <div class="start-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 19.5V5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-1.5Z" />
+            <path d="M8 7h6" />
+            <path d="M8 11h8" />
+          </svg>
+        </div>
+        <div>
+          <strong>起步：初始化资料</strong>
+          <span>上传教材、真题、范文和项目背景卡，用 <code>ruankao-init</code> 建好复习工作区。</span>
+        </div>
+      </div>
+
+      <div class="tool-strip" aria-label="核心技能">
+        <span class="chip">wrong-note</span>
+        <span class="chip">case-2sigma</span>
+        <span class="chip">mock-generator</span>
+        <span class="chip">answer-grader</span>
+        <span class="chip">thesis-reviewer</span>
+        <span class="chip">coach-agent</span>
+      </div>
+    </section>
+
+    <section class="route">
+      <div class="route-head">
+        <h2>四阶段复习闭环</h2>
+        <p>看资料 -> 做题 -> 批改 -> 记录 -> 补洞</p>
+      </div>
+
+      <div class="stages">
+        <article class="stage">
+          <div class="stage-top">
+            <div class="stage-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M9 18h6" />
+                <path d="M10 22h4" />
+                <path d="M8.5 14.5A6 6 0 1 1 15.5 14.5c-.8.6-1.5 1.4-1.5 2.5h-4c0-1.1-.7-1.9-1.5-2.5Z" />
+              </svg>
+            </div>
+            <div class="number">01</div>
+          </div>
+          <h3>综合知识</h3>
+          <p class="goal">看教材、刷选择题，把错题变成可复习资产。</p>
+          <ul class="steps">
+            <li><span class="dot">1</span><span>按章节看资料，快速建立知识面。</span></li>
+            <li><span class="dot">2</span><span>刷选择题和历年真题，发现薄弱点。</span></li>
+            <li><span class="dot">3</span><span>错题记录题干、选项、答案、原因。</span></li>
+          </ul>
+          <div class="skills"><code>ruankao-wrong-note</code></div>
+        </article>
+
+        <article class="stage">
+          <div class="stage-top">
+            <div class="stage-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 7h16" />
+                <path d="M4 12h10" />
+                <path d="M4 17h7" />
+                <path d="m15 16 2 2 4-5" />
+              </svg>
+            </div>
+            <div class="number">02</div>
+          </div>
+          <h3>案例题</h3>
+          <p class="goal">先学知识点，再用真题和模拟题训练采分点表达。</p>
+          <ul class="steps">
+            <li><span class="dot">1</span><span>指定知识点，用 2-Sigma 小步补洞。</span></li>
+            <li><span class="dot">2</span><span>做真题，或生成贴近真题的模拟题。</span></li>
+            <li><span class="dot">3</span><span>按采分点评分，把缺口记入错题本。</span></li>
+          </ul>
+          <div class="skills">
+            <code>ruankao-case-2sigma-review</code>
+            <code>ruankao-case-mock-generator</code>
+            <code>ruankao-answer-grader</code>
+          </div>
+        </article>
+
+        <article class="stage">
+          <div class="stage-top">
+            <div class="stage-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 20h9" />
+                <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" />
+              </svg>
+            </div>
+            <div class="number">03</div>
+          </div>
+          <h3>论文</h3>
+          <p class="goal">准备项目背景卡，形成可背、可默写、可迁移的范文。</p>
+          <ul class="steps">
+            <li><span class="dot">1</span><span>整理自己的项目背景卡和实践动作。</span></li>
+            <li><span class="dot">2</span><span>生成论点素材，背诵范文骨架。</span></li>
+            <li><span class="dot">3</span><span>闭卷默写整篇论文，再按考官标准评分。</span></li>
+          </ul>
+          <div class="skills">
+            <code>ruankao-thesis-argument-prep</code>
+            <code>ruankao-thesis-2sigma</code>
+            <code>ruankao-thesis-reviewer</code>
+          </div>
+        </article>
+
+        <article class="stage">
+          <div class="stage-top">
+            <div class="stage-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 13a8 8 0 1 0 4-7" />
+                <path d="M4 5v8h8" />
+                <path d="m12 8 3 4-3 4" />
+              </svg>
+            </div>
+            <div class="number">04</div>
+          </div>
+          <h3>最后冲刺</h3>
+          <p class="goal">最后一到两周收敛训练，把复习变成每日闭环。</p>
+          <ul class="steps">
+            <li><span class="dot">1</span><span>让 coach 依据错题、案例和论文短板排计划。</span></li>
+            <li><span class="dot">2</span><span>每天做最小任务：错题、案例、论文三选一。</span></li>
+            <li><span class="dot">3</span><span>用 10 问抽查高频案例知识点，持续补洞。</span></li>
+          </ul>
+          <div class="skills">
+            <code>ruankao-coach-agent</code>
+            <code>ruankao-case-sprint-10</code>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
