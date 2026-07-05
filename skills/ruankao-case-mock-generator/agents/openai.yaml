@@ -1,0 +1,7 @@
+interface:
+  display_name: "ruankao-case-mock-generator"
+  short_description: "参考真题与教材风格生成高仿软考案例模拟套题与标准答案"
+  default_prompt: "Use $ruankao-case-mock-generator to create realistic Ruankao case-analysis mock questions and standard answers based on the local textbook and past-paper style."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: "ruankao-init"
+  short_description: "建立通用软考资料目录并检查上传完整性"
+  default_prompt: "Use $ruankao-init to initialize my Ruankao study workspace, check uploaded materials, create a project-background template, and tell me which skill to use next."
+
+policy:
+  allow_implicit_invocation: true

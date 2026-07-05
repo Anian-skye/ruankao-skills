@@ -1,0 +1,7 @@
+interface:
+  display_name: "ruankao-coach-agent"
+  short_description: "综合编排评分、错题、2sigma 补洞、论文和日计划，形成备考闭环"
+  default_prompt: "Use $ruankao-coach-agent to run a closed-loop Ruankao coaching workflow: grade my answer, record meaningful mistakes, remediate the weakest knowledge point with 2sigma, and suggest the next small step."
+
+policy:
+  allow_implicit_invocation: true

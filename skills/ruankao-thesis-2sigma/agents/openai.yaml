@@ -1,0 +1,4 @@
+interface:
+  display_name: "ruankao-thesis-2sigma"
+  short_description: "诊断、掌握门槛、误区追踪驱动的论文三层训练"
+  default_prompt: "使用 $ruankao-thesis-2sigma 训练一个软考论文母题：先诊断，再按掌握门槛推进知识理解、范文骨架、项目映射和子题迁移。"

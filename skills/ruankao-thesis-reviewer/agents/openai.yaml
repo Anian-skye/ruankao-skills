@@ -1,0 +1,7 @@
+interface:
+  display_name: "ruankao-thesis-reviewer"
+  short_description: "按软考论文阅卷标准对整篇论文评分"
+  default_prompt: "Use $ruankao-thesis-reviewer to grade a 软考 essay based on the prompt and my full essay, then give a total score, scoring rationale, and revision advice."
+
+policy:
+  allow_implicit_invocation: true

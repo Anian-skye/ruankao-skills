@@ -1,0 +1,7 @@
+interface:
+  display_name: "ruankao-case-2sigma-review"
+  short_description: "围绕一个软考案例知识点做诊断、采分点抽问和小步补救"
+  default_prompt: "Use $ruankao-case-2sigma-review to train one System Architect case-analysis knowledge point with Bloom 2-Sigma mastery learning, using the local case-analysis textbooks as source material."
+
+policy:
+  allow_implicit_invocation: true

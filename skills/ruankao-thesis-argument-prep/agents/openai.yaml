@@ -1,0 +1,7 @@
+interface:
+  display_name: "ruankao-thesis-argument-prep"
+  short_description: "把论文知识点映射到用户项目背景卡"
+  default_prompt: "Use $ruankao-thesis-argument-prep to turn a Ruankao thesis knowledge point into textbook-backed theory, project-practice material, and reusable essay paragraphs based on my uploaded project-background card."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,7 @@
+interface:
+  display_name: "ruankao-answer-grader"
+  short_description: "按软考采分点思路对题目答案进行打分"
+  default_prompt: "Use $ruankao-answer-grader to grade a 软考 question based on the question, my answer, the reference answer, and the full score."
+
+policy:
+  allow_implicit_invocation: true

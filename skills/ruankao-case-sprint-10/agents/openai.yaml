@@ -1,0 +1,7 @@
+interface:
+  display_name: "ruankao-case-sprint-10"
+  short_description: "基于用户上传案例资料抽题并记录掌握情况"
+  default_prompt: "Use $ruankao-case-sprint-10 to quiz me on high-frequency case-analysis knowledge points from my uploaded Ruankao case materials, track mastery, and record wrong answers."
+
+policy:
+  allow_implicit_invocation: true
